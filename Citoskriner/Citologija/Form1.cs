@@ -10,10 +10,10 @@ namespace Citologija
         public Form1()
         {
             InitializeComponent();
-            datumOD.Format = DateTimePickerFormat.Custom;
-            datumOD.CustomFormat = "dd.MM.yyyy";
-            datumDO.Format = DateTimePickerFormat.Custom;
-            datumDO.CustomFormat = "dd.MM.yyyy";
+           //datumOD.Format = DateTimePickerFormat.Custom;
+            //datumOD.CustomFormat = "dd.MM.yyyy";
+           //datumDO.Format = DateTimePickerFormat.Custom;
+            //datumDO.CustomFormat = "dd.MM.yyyy";
             dataGridView1.AutoGenerateColumns = false;
         }
 
@@ -34,11 +34,11 @@ namespace Citologija
             updateGridView();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = DataAccess.IzvestaCito(comboBox1.Text);
-            //dataGridView1.DataSource = data.DatSelect(datumOD.Value.ToString("yyyy-MM-dd"), datumDO.Value.ToString("yyyy-MM-dd"), comboBox1.Text);
-        }
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    dataGridView1.DataSource = DataAccess.IzvestaCito(comboBox1.Text);
+        //    //dataGridView1.DataSource = data.DatSelect(datumOD.Value.ToString("yyyy-MM-dd"), datumDO.Value.ToString("yyyy-MM-dd"), comboBox1.Text);
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -49,19 +49,29 @@ namespace Citologija
                 jmbg = jmbgTxt.Text,
             };
 
-            var temp = DataAccess.UpisPacijenta(pacijent);
-            if (temp > 0)
-            {
-                updateGridView();
-                DataAccess.Id_pacijent = temp;
-                var unos_podataka = new unosPodataka();
+            Podaci provera = DataAccess.getPacijentByJMBG(jmbgTxt.Text);
 
-                unos_podataka.Show();
-                unos_podataka.FormClosing += unosPodataka_FormClosing;
+            if (provera!=null)
+            {
+                MessageBox.Show("Već postoji pacijent sa unetim JMBG\n "+provera.ime+" "+provera.prezime);
             }
             else
             {
-                MessageBox.Show("Došlo je do greške!");
+
+                var temp = DataAccess.UpisPacijenta(pacijent);
+                if (temp > 0)
+                {
+                    updateGridView();
+                    DataAccess.Id_pacijent = temp;
+                    var unos_podataka = new unosPodataka();
+                
+                    unos_podataka.Show();
+                    unos_podataka.FormClosing += unosPodataka_FormClosing;
+                }
+                else
+                {
+                    MessageBox.Show("Došlo je do greške!");
+                }
             }
            
         }
@@ -73,6 +83,18 @@ namespace Citologija
            
             unos_podataka.Show();
             unos_podataka.FormClosing += unosPodataka_FormClosing;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                DataAccess.deletePacijent((int)(dataGridView1.CurrentRow.Cells[0].Value));
+                updateGridView();
+            }
         }
     }
 }

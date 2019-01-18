@@ -33,6 +33,29 @@ namespace Citologija
             }
         }
 
+        public static int deletePacijent(int id)
+        {
+            string sql = "UPDATE podaci SET aktivan = 0 WHERE id = @id;";
+
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, new { id });
+                return affectedRows;
+            }
+
+        }
+
+        public static Podaci getPacijentByJMBG(string jmbg)
+        {
+            string sql = "SELECT * FROM podaci WHERE jmbg=@jmbg ;";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var pacijentList = db.Query<Podaci>(sql, new { jmbg });
+
+                return pacijentList.First();
+            }
+        }
+
         public static int UpisPap(int id_pacijent, string datum_pap, string nalaz_cito,string lekar,string br_prep)
         {
             string sql = "INSERT INTO pap (id_pacijent, datum_pap,nalaz_cito,lekar,broj_prep,aktivan) Values (@id_pacijent,@datum_pap,@nalaz_cito,@lekar,@br_prep,'" + 1 + "');";
