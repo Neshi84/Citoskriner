@@ -13,6 +13,6 @@ namespace Citologija.Model
         public List<Hpv> hpv = new List<Hpv>();
         public List<Pap> pap = new List<Pap>();
         public List<Revizija> revizija = new List<Revizija>();
-        public string aktivan { get; set; }
+        
     }
 }

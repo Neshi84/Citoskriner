@@ -116,3 +116,4 @@ C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Debug\
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.exe
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.pdb
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Izvestaji.resources
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Izvestaji.resources

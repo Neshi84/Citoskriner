@@ -21,6 +21,6 @@ namespace Citologija.Model
         }
 
         public string nalaz_bio { get; set; }
-        public string aktivan { get; set; }
+        
     }
 }

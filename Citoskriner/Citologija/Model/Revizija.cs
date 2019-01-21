@@ -21,6 +21,6 @@ namespace Citologija.Model
             set { datum_rev = value; }
         }
 
-        public string aktivan { get; set; }
+        
     }
 }
