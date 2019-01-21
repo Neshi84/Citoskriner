@@ -12,17 +12,17 @@ namespace Citologija
         public static int Id_pacijent { get; set; }
 
 
-        public static IEnumerable <Podaci> ReadAll()
+        public static IEnumerable <Pacijent> ReadAll()
         {
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var test = db.Query<Podaci>("SELECT id,ime ,prezime,jmbg FROM podaci WHERE aktivan = 1 ");
+                var test = db.Query<Pacijent>("SELECT id,ime ,prezime,jmbg FROM podaci WHERE aktivan = 1 ");
 
                 return test;
             }
         }
 
-        public static int UpisPacijenta(Podaci pacijent)
+        public static int UpisPacijenta(Pacijent pacijent)
         {
             string sql = "INSERT INTO podaci (ime, prezime,jmbg,aktivan) Values (@ime,@prezime,@jmbg,'" + 1 + "'); " +
                         " SELECT last_insert_rowid()";
@@ -45,12 +45,12 @@ namespace Citologija
 
         }
 
-        public static Podaci getPacijentByJMBG(string jmbg)
+        public static Pacijent getPacijentByJMBG(string jmbg)
         {
             string sql = "SELECT * FROM podaci WHERE jmbg=@jmbg ;";
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var pacijentList = db.Query<Podaci>(sql, new { jmbg });
+                var pacijentList = db.Query<Pacijent>(sql, new { jmbg });
 
                 return pacijentList.First();
             }
@@ -126,31 +126,13 @@ namespace Citologija
             }
         }
 
-        public static IEnumerable<Pacijenti> DatSelect(string OD, string DO, string cito)
-        {
-            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
-            {
-                return db.Query<Pacijenti>
-                ("SELECT * FROM pregled WHERE  datum_pap => @OD AND datum_pap =< @DO AND nalaz_cito = @cito ", new { OD, DO, cito }).ToList();
-            }
-        }
-
-        public static IEnumerable<Pacijenti> IzvestaCito(string cito)
-        {
-            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
-            {
-                return db.Query<Pacijenti>
-                ("SELECT * FROM pregled WHERE  nalaz_cito = @cito ", new { cito }).ToList();
-            }
-        }
-
-        public static Podaci VratiPacijenta(int id)
+        public static Pacijent VratiPacijenta(int id)
         {
             string sql = "SELECT * FROM podaci WHERE id = @id AND aktivan=1;";
 
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var pacijentList = db.Query<Podaci>(sql, new { id });
+                var pacijentList = db.Query<Pacijent>(sql, new { id });
 
                 return pacijentList.First();
             }

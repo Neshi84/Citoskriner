@@ -1,15 +1,27 @@
 ﻿using Citologija.Model;
+using Citologija.Repository;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Citologija
 {
     public partial class unosPodataka : Form
     {
-       
+        PacijentRepository pacijenti = new PacijentRepository();
+        BiopsijaRepository biopsije = new BiopsijaRepository();
+        PapRepository papRepo = new PapRepository();
+        HpvRepository hpvRepo = new HpvRepository();
+        HirIntervencijeRepository hirRepo = new HirIntervencijeRepository();
+        RevizijaRepository revizije = new RevizijaRepository();
+
         public unosPodataka()
         {
-           
+
+           // var pac= pacijenti.getAllFull();
+
+           // var temp = pac.Where(p => p.pap.Any(i => i.lekar == "Dr Kristina Ivković Šunjka"));
+
             InitializeComponent();
             
             dateTimePicker4.Format = DateTimePickerFormat.Custom;
@@ -29,17 +41,18 @@ namespace Citologija
 
         private void UnosRev_FormClosing(object sender, FormClosingEventArgs e)
         {
-            revGridView.DataSource = DataAccess.VratiReviziju(DataAccess.Id_pacijent);
+            revGridView.DataSource = revizije.getRevizijaByPacijentId(DataAccess.Id_pacijent);
         }
 
         private void UnosHpv_FormClosing(object sender, FormClosingEventArgs e)
         {
-            hpvGridView.DataSource = DataAccess.VratiHpv(DataAccess.Id_pacijent);
+            var source = hpvRepo.getHpvByPacijentId(DataAccess.Id_pacijent);
+            hpvGridView.DataSource = source;
         }
 
         public void prikaziPacijenta()
         {
-            Podaci pacijent = DataAccess.VratiPacijenta(DataAccess.Id_pacijent);
+            Pacijent pacijent = pacijenti.getPacijentById(DataAccess.Id_pacijent);
             textIme.Text = pacijent.ime;
             textPrezime.Text = pacijent.prezime;
             textJMBG.Text = pacijent.jmbg;
@@ -48,11 +61,11 @@ namespace Citologija
         private void unosPodataka_Load(object sender, EventArgs e)
         {
             prikaziPacijenta();
-            papGridView.DataSource = DataAccess.VratiPap(DataAccess.Id_pacijent);
-            hpvGridView.DataSource = DataAccess.VratiHpv(DataAccess.Id_pacijent);
-            bioGridView.DataSource = DataAccess.VratiBiopsiju(DataAccess.Id_pacijent);
-            hirGridView.DataSource = DataAccess.VratiHir(DataAccess.Id_pacijent);
-            revGridView.DataSource = DataAccess.VratiReviziju(DataAccess.Id_pacijent);
+            papGridView.DataSource = papRepo.getPapByPacijentId(DataAccess.Id_pacijent);
+            hpvGridView.DataSource = hpvRepo.getHpvByPacijentId(DataAccess.Id_pacijent);
+            bioGridView.DataSource = biopsije.getBiopsjaByPacientId(DataAccess.Id_pacijent);
+            hirGridView.DataSource = hirRepo.getHirByPacijentId(DataAccess.Id_pacijent);
+            revGridView.DataSource = revizije.getRevizijaByPacijentId(DataAccess.Id_pacijent);
         }
 
         private void NovaRevizijaBtn_Click(object sender, EventArgs e)
@@ -73,7 +86,7 @@ namespace Citologija
 
         private void NovaBiopsijaBtn_Click(object sender, EventArgs e)
         {
-            var temp = DataAccess.UpisBiopsija(DataAccess.Id_pacijent, datePickerBiopsija.Value.ToString("yyyy-MM-dd"), comboBox3.Text);
+            var temp = biopsije.addBiopsija(DataAccess.Id_pacijent, datePickerBiopsija.Value.ToString("yyyy-MM-dd"), comboBox3.Text);
 
             if (temp > 0)
             {
@@ -83,12 +96,12 @@ namespace Citologija
             {
                 MessageBox.Show("Došlo je do greške!");
             }
-            bioGridView.DataSource = DataAccess.VratiBiopsiju(DataAccess.Id_pacijent);
+            bioGridView.DataSource =biopsije.getBiopsjaByPacientId(DataAccess.Id_pacijent);
         }
 
         private void Sacuvaj_Click(object sender, EventArgs e)
         {
-            var temp = DataAccess.UpisPap(DataAccess.Id_pacijent, dateTimePicker4.Value.ToString("yyyy-MM-dd"), comboBox1.Text,comboBox2.Text,ploctxt.Text);
+            var temp = papRepo.addPap(DataAccess.Id_pacijent, dateTimePicker4.Value.ToString("yyyy-MM-dd"), comboBox1.Text,comboBox2.Text,ploctxt.Text);
 
             if (temp > 0)
             {
@@ -98,7 +111,7 @@ namespace Citologija
             {
                 MessageBox.Show("Došlo je do greške!");
             }
-            papGridView.DataSource = DataAccess.VratiPap(DataAccess.Id_pacijent);
+            papGridView.DataSource = papRepo.getPapByPacijentId(DataAccess.Id_pacijent);
         }
 
         private void button1_Click(object sender, EventArgs e)

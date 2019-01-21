@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Citologija.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ namespace Citologija
 {
     public partial class UnosBiopsija : Form
     {
+        BiopsijaRepository biopsije = new BiopsijaRepository();
         public UnosBiopsija()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace Citologija
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var temp = DataAccess.UpisBiopsija(DataAccess.Id_pacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), richTextBox1.Text);
+            var temp = biopsije.addBiopsija(DataAccess.Id_pacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), richTextBox1.Text);
 
             if (temp > 0)
             {

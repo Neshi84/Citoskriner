@@ -1,4 +1,5 @@
 ﻿using Citologija.Model;
+using Citologija.Repository;
 using System;
 using System.Windows.Forms;
 
@@ -6,22 +7,17 @@ namespace Citologija
 {
     public partial class Form1 : Form
     {
-        
+        PacijentRepository pacijenti = new PacijentRepository();
         public Form1()
-        {
-            InitializeComponent();
-           //datumOD.Format = DateTimePickerFormat.Custom;
-            //datumOD.CustomFormat = "dd.MM.yyyy";
-           //datumDO.Format = DateTimePickerFormat.Custom;
-            //datumDO.CustomFormat = "dd.MM.yyyy";
+        {           
+            InitializeComponent();         
             dataGridView1.AutoGenerateColumns = false;
         }
 
         private void updateGridView()
         {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = DataAccess.ReadAll();
-
+            dataGridView1.DataSource = pacijenti.ReadAll();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,22 +30,17 @@ namespace Citologija
             updateGridView();
         }
 
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //    dataGridView1.DataSource = DataAccess.IzvestaCito(comboBox1.Text);
-        //    //dataGridView1.DataSource = data.DatSelect(datumOD.Value.ToString("yyyy-MM-dd"), datumDO.Value.ToString("yyyy-MM-dd"), comboBox1.Text);
-        //}
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            Podaci pacijent = new Podaci
+            Pacijent pacijent = new Pacijent
             {
                 ime = imeTxt.Text,
                 prezime = prezimeTxt.Text,
                 jmbg = jmbgTxt.Text,
             };
 
-            Podaci provera = DataAccess.getPacijentByJMBG(jmbgTxt.Text);
+            Pacijent provera = pacijenti.getPacijentByJMBG(jmbgTxt.Text);
 
             if (provera!=null)
             {
@@ -58,7 +49,7 @@ namespace Citologija
             else
             {
 
-                var temp = DataAccess.UpisPacijenta(pacijent);
+                var temp = pacijenti.addPacijent(pacijent);
                 if (temp > 0)
                 {
                     updateGridView();
@@ -92,9 +83,16 @@ namespace Citologija
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                DataAccess.deletePacijent((int)(dataGridView1.CurrentRow.Cells[0].Value));
+                pacijenti.deletePacijent((int)(dataGridView1.CurrentRow.Cells[0].Value));
                 updateGridView();
             }
+        }
+
+        private void izvestajiBtn_Click(object sender, EventArgs e)
+        {
+            var izvestaji = new Izvestaji();
+
+            izvestaji.Show();
         }
     }
 }

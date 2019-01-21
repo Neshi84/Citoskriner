@@ -190,6 +190,7 @@
             this.izvestajiBtn.TabIndex = 18;
             this.izvestajiBtn.Text = "Izveštaji";
             this.izvestajiBtn.UseVisualStyleBackColor = true;
+            this.izvestajiBtn.Click += new System.EventHandler(this.izvestajiBtn_Click);
             // 
             // Form1
             // 

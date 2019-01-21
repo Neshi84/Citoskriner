@@ -2,7 +2,7 @@
 
 namespace Citologija.Model
 {
-    internal class Podaci
+    internal class Pacijent
     {
         public int id { get; set; }
         public string ime { get; set; }
