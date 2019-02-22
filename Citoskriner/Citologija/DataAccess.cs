@@ -52,7 +52,7 @@ namespace Citologija
             {
                 var pacijentList = db.Query<Pacijent>(sql, new { jmbg });
 
-                return pacijentList.First();
+                return pacijentList.FirstOrDefault();
             }
         }
 
