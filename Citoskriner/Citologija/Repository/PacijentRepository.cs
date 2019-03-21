@@ -66,9 +66,22 @@ namespace Citologija.Repository
 
         }
 
+        public IEnumerable<Pacijent> searchPacijent(string kriterijum)
+        {
+            string sql = "SELECT * FROM podaci WHERE jmbg LIKE  @kriterijum  OR ime LIKE  @kriterijum OR prezime LIKE  @kriterijum  AND aktivan=1 ;";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var pacijentList = db.Query<Pacijent>(sql, new { kriterijum = "%" + kriterijum + "%" });
+
+
+                return pacijentList;
+            }
+        }
+
+
         public Pacijent getPacijentByJMBG(string jmbg)
         {
-            string sql = "SELECT * FROM podaci WHERE jmbg=@jmbg ;";
+            string sql = "SELECT * FROM podaci WHERE jmbg=@jmbg AND aktivan=1 ;";
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
                 var pacijentList = db.Query<Pacijent>(sql, new { jmbg });

@@ -19,3 +19,4 @@ C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Releas
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.csproj.CopyComplete
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.exe
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.pdb
+C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.csprojAssemblyReference.cache
