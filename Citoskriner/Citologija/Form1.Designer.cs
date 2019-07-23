@@ -43,6 +43,7 @@
             this.imeTxt = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.izvestajiBtn = new System.Windows.Forms.Button();
+            this.pretragaTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -192,11 +193,20 @@
             this.izvestajiBtn.UseVisualStyleBackColor = true;
             this.izvestajiBtn.Click += new System.EventHandler(this.izvestajiBtn_Click);
             // 
+            // pretragaTxtBox
+            // 
+            this.pretragaTxtBox.Location = new System.Drawing.Point(12, 173);
+            this.pretragaTxtBox.Name = "pretragaTxtBox";
+            this.pretragaTxtBox.Size = new System.Drawing.Size(285, 20);
+            this.pretragaTxtBox.TabIndex = 19;
+            this.pretragaTxtBox.TextChanged += new System.EventHandler(this.pretragaTxtBox_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 495);
+            this.Controls.Add(this.pretragaTxtBox);
             this.Controls.Add(this.izvestajiBtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
@@ -207,6 +217,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -227,6 +238,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jmbg;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
         private System.Windows.Forms.Button izvestajiBtn;
+        private System.Windows.Forms.TextBox pretragaTxtBox;
     }
 }
 
