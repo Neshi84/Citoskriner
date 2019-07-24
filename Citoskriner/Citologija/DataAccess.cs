@@ -12,7 +12,7 @@ namespace Citologija
         public static int Id_pacijent { get; set; }
 
 
-        public static IEnumerable <Pacijent> ReadAll()
+        public static IEnumerable<Pacijent> ReadAll()
         {
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
@@ -21,6 +21,7 @@ namespace Citologija
                 return test;
             }
         }
+
 
         public static int UpisPacijenta(Pacijent pacijent)
         {
@@ -56,12 +57,12 @@ namespace Citologija
             }
         }
 
-        public static int UpisPap(int id_pacijent, string datum_pap, string nalaz_cito,string lekar,string br_prep)
+        public static int UpisPap(int id_pacijent, string datum_pap, string nalaz_cito, string lekar, string br_prep)
         {
             string sql = "INSERT INTO pap (id_pacijent, datum_pap,nalaz_cito,lekar,broj_prep,aktivan) Values (@id_pacijent,@datum_pap,@nalaz_cito,@lekar,@br_prep,'" + 1 + "');";
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var affectedRows = db.Execute(sql, new { id_pacijent, datum_pap, nalaz_cito,lekar, br_prep });
+                var affectedRows = db.Execute(sql, new { id_pacijent, datum_pap, nalaz_cito, lekar, br_prep });
                 return affectedRows;
             }
         }
@@ -106,25 +107,6 @@ namespace Citologija
             }
         }
 
-        public static string broj()
-        {
-            string sql = "SELECT COUNT(*) FROM pregled;";
-            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
-            {
-                var ukupno = db.ExecuteScalar(sql);
-                return ukupno.ToString();
-            }
-        }
-
-        public static string Broj()
-        {
-            string sql = "SELECT COUNT(*) FROM pregled;";
-            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
-            {
-                var ukupno = db.ExecuteScalar(sql);
-                return ukupno.ToString();
-            }
-        }
 
         public static Pacijent VratiPacijenta(int id)
         {

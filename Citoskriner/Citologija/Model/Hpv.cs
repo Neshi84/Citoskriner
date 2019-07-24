@@ -2,7 +2,7 @@
 
 namespace Citologija.Model
 {
-    internal class Hpv
+    public class Hpv
     {
         public int id { get; set; }
         public int id_pacijent { get; set; }

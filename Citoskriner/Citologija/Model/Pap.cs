@@ -2,7 +2,7 @@
 
 namespace Citologija.Model
 {
-    internal class Pap
+    public class Pap
     {
         public int id { get; set; }
         public int id_pacijent { get; set; }

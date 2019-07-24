@@ -95,10 +95,10 @@ namespace Citologija
             izvestaji.Show();
         }
 
-        private void pretragaTxtBox_TextChanged(object sender, EventArgs e)
+        private void PretragaTxtBox_TextChanged(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = pacijenti.searchPacijent(pretragaTxtBox.Text);
+            dataGridView1.DataSource = pacijenti.searchPacijent(PretragaTxtBox.Text);
         }
     }
 }

@@ -73,27 +73,6 @@ D:\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.pdb
 D:\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Slapper.dll
 D:\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Slapper.pdb
 D:\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Slapper.xml
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Citologija.exe.config
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Citologija.exe
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Citologija.pdb
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Dapper.dll
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\System.Data.SQLite.dll
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Dapper.pdb
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Dapper.xml
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\System.Data.SQLite.xml
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csprojAssemblyReference.cache
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Form1.resources
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Properties.Resources.resources
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.unosPodataka.resources
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.GenerateResource.cache
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CoreCompileInputs.cache
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CopyComplete
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.exe
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.pdb
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosRevizija.resources
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosHPV.resources
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosBiopsija.resources
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\bin\Debug\Citologija.exe.config
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\bin\Debug\Citologija.exe
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\bin\Debug\Citologija.pdb
@@ -116,4 +95,25 @@ C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Debug\
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.exe
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.pdb
 C:\Users\Martin\Desktop\New folder\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Izvestaji.resources
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Citologija.exe.config
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Citologija.exe
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Citologija.pdb
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Dapper.dll
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\System.Data.SQLite.dll
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Dapper.pdb
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\Dapper.xml
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\System.Data.SQLite.xml
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csprojAssemblyReference.cache
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Form1.resources
 C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Izvestaji.resources
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Properties.Resources.resources
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosBiopsija.resources
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosHPV.resources
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.unosPodataka.resources
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosRevizija.resources
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.GenerateResource.cache
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CoreCompileInputs.cache
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CopyComplete
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.exe
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.pdb
