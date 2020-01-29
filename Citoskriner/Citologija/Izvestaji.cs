@@ -32,10 +32,7 @@ namespace Citologija
         {
             var datumOd = DateTime.Parse(datumOdPicker.Value.ToString());
             var datumDo = DateTime.Parse(datumDoPicker.Value.ToString());
-
            
-
-
 
             var allPac = pacijentRepo.getAllFull();
 
@@ -43,15 +40,36 @@ namespace Citologija
                 .Where(p => p.pap.Any(l => l.lekar == lekar && l.nalaz_cito == nalaz && (DateTime.Parse(l.Datum_pap) >= datumOd && DateTime.Parse(l.Datum_pap) <= datumDo)));
 
 
-
             return pacijenti.ToList();
 
             
         }
 
+
+        public List<Pacijent> papaPoLekaruIHpv(string lekar, string nalaz)
+        {
+            var datumOd = DateTime.Parse(datumOdPicker.Value.ToString());
+            var datumDo = DateTime.Parse(datumDoPicker.Value.ToString());
+
+
+            var allPac = pacijentRepo.getAllFull().Where(p=>p.pap.Any(l=>l.lekar==lekar) && p.hpv.Any());
+
+            var pacijenti = allPac.Where(p => p.hpv.Any(l=> l.nalaz_hpv == nalaz && (DateTime.Parse(l.Datum_hpv) >= datumOd && DateTime.Parse(l.Datum_hpv) <= datumDo)));
+
+
+            return pacijenti.ToList();
+
+
+        }
+
         private void Button1_Click(object sender, System.EventArgs e)
         {
-            dataGridView1.DataSource = papaPoLekaruInalazu(comboBox2.Text, comboBox3.Text);
+            dataGridView1.DataSource = papaPoLekaruInalazu(comboBoxLekar.Text, comboBox3.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = papaPoLekaruIHpv(comboBoxLekar.Text, comboBoxHPV.Text);
         }
     }
 }
