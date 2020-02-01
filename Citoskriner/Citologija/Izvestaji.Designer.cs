@@ -93,7 +93,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "Prikaži";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // datumOdPicker
             // 
@@ -252,7 +252,6 @@
             this.Controls.Add(this.comboBoxLekar);
             this.Name = "Izvestaji";
             this.Text = "Izvestaji";
-            this.Load += new System.EventHandler(this.Izvestaji_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

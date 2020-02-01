@@ -113,7 +113,6 @@ C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citolog
 C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.unosPodataka.resources
 C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosRevizija.resources
 C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.GenerateResource.cache
-C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CoreCompileInputs.cache
 C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CopyComplete
 C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.exe
 C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.pdb
@@ -138,3 +137,4 @@ C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citolo
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CopyComplete
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.exe
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.pdb
+C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CoreCompileInputs.cache

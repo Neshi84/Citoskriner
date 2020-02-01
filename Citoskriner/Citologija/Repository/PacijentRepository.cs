@@ -11,28 +11,7 @@ namespace Citologija.Repository
 {
     class PacijentRepository
     {
-        BiopsijaRepository biopsije = new BiopsijaRepository();       
-        PapRepository papRepo = new PapRepository();
-        HpvRepository hpvRepo = new HpvRepository();
-        HirIntervencijeRepository hirRepo = new HirIntervencijeRepository();
-        RevizijaRepository revizije = new RevizijaRepository();
-
-        public IEnumerable<Pacijent> getAllFull()
-        {
-          IEnumerable<Pacijent> pacijenti =ReadAll();
-
-            foreach(Pacijent pacijent in pacijenti)
-            {
-                pacijent.biopsija = biopsije.getBiopsjaByPacientId(pacijent.id).ToList();
-                pacijent.hpv = hpvRepo.getHpvByPacijentId(pacijent.id).ToList();
-                pacijent.hir_intervencije = hirRepo.getHirByPacijentId(pacijent.id).ToList();
-                pacijent.pap = papRepo.getPapByPacijentId(pacijent.id).ToList();
-                pacijent.revizija = revizije.getRevizijaByPacijentId(pacijent.id).ToList();
-            }
-
-            return pacijenti;
-        }
-
+             
         public IEnumerable<Pacijent> ReadAll()
         {
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
@@ -68,7 +47,7 @@ namespace Citologija.Repository
 
         public IEnumerable<Pacijent> searchPacijent(string kriterijum)
         {
-            string sql = "SELECT * FROM podaci WHERE jmbg LIKE  @kriterijum  OR ime LIKE  @kriterijum OR prezime LIKE  @kriterijum  AND aktivan=1 ;";
+            string sql = "SELECT * FROM podaci WHERE (jmbg LIKE  @kriterijum  OR ime LIKE  @kriterijum OR prezime LIKE  @kriterijum)  AND aktivan=1 ;";
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
                 var pacijentList = db.Query<Pacijent>(sql, new { kriterijum = "%" + kriterijum + "%" });
@@ -103,5 +82,63 @@ namespace Citologija.Repository
             }
         }
 
+        public IEnumerable <PacijentBiopsija> getPacijentBiopsija(string datumOd , string datumDo,string lekar,string nalaz)
+        {
+            string sql = "SELECT * FROM podaci " +
+                         "INNER JOIN biopsija ON podaci.id = biopsija.id_pacijent " +
+                         "INNER JOIN pap ON podaci.id=pap.id_pacijent " +
+                         "WHERE pap.lekar =@lekar " +
+                         "AND datum_bio BETWEEN date(@datumOd) AND date(@datumDo) " +
+                         "AND biopsija.nalaz_bio =@nalaz " +
+                         "AND podaci.aktivan=1 " +
+                         "AND biopsija.aktivan = 1 " +
+                         "AND pap.aktivan = 1; ";
+
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var pacijentList = db.Query<PacijentBiopsija>(sql, new { datumOd,datumDo,lekar,nalaz });
+
+                return pacijentList;
+            }
+        }
+
+
+        public IEnumerable<PacijentHpv> getPacijentHpv(string datumOd, string datumDo, string lekar, string nalaz)
+        {
+            string sql = "SELECT * FROM podaci " +
+                         "INNER JOIN hpv ON podaci.id = hpv.id_pacijent " +
+                         "INNER JOIN pap ON podaci.id=pap.id_pacijent " +
+                         "WHERE pap.lekar =@lekar " +
+                         "AND datum_hpv BETWEEN date(@datumOd) AND date(@datumDo) " +
+                         "AND hpv.nalaz_hpv = @nalaz " +
+                         "AND podaci.aktivan=1 " +
+                         "AND hpv.aktivan = 1 " +
+                         "AND pap.aktivan = 1; ";
+
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var pacijentList = db.Query<PacijentHpv>(sql, new { datumOd, datumDo, lekar, nalaz });
+
+                return pacijentList;
+            }
+        }
+
+        public IEnumerable<PacijentPap> getPacijentPap(string datumOd, string datumDo, string lekar, string nalaz)
+        {
+            string sql = "SELECT * FROM podaci " +                       
+                         "INNER JOIN pap ON podaci.id=pap.id_pacijent " +
+                         "WHERE pap.lekar =@lekar " +
+                         "AND datum_pap BETWEEN date(@datumOd) AND date(@datumDo) " +
+                         "AND pap.nalaz_cito = @nalaz " +
+                         "AND podaci.aktivan=1 " +                        
+                         "AND pap.aktivan = 1; ";
+
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var pacijentList = db.Query<PacijentPap>(sql, new { datumOd, datumDo, lekar, nalaz });
+
+                return pacijentList;
+            }
+        }
     }
 }

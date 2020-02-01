@@ -68,6 +68,9 @@
       <DependentUpon>Izvestaji.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Biopsija.cs" />
+    <Compile Include="Model\PacijentBiopsija.cs" />
+    <Compile Include="Model\PacijentHpv.cs" />
+    <Compile Include="Model\PacijentPap.cs" />
     <Compile Include="Repository\HirIntervencijeRepository.cs" />
     <Compile Include="Model\Hir_intervencije.cs" />
     <Compile Include="Model\Hpv.cs" />

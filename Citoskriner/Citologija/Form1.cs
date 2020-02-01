@@ -1,6 +1,7 @@
 ﻿using Citologija.Model;
 using Citologija.Repository;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Citologija
@@ -17,7 +18,7 @@ namespace Citologija
         private void updateGridView()
         {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = pacijenti.ReadAll();
+            dataGridView1.DataSource = pacijenti.ReadAll().OrderBy(p=>p.id).ToList();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -83,6 +84,7 @@ namespace Citologija
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
+                var id = (int)(dataGridView1.CurrentRow.Cells[0].Value);
                 pacijenti.deletePacijent((int)(dataGridView1.CurrentRow.Cells[0].Value));
                 updateGridView();
             }

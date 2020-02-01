@@ -18,9 +18,7 @@ namespace Citologija
         public unosPodataka()
         {
 
-            var pac= pacijenti.getAllFull();
-
-           var temp = pac.Where(p => p.pap.Any(i => i.lekar == "Dr Kristina Ivković Šunjka"));
+            
 
             InitializeComponent();
             
