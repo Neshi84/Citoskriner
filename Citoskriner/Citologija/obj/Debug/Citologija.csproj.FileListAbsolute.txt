@@ -138,3 +138,4 @@ C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citolo
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.exe
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.pdb
 C:\Users\Neshi\Desktop\Repo\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CoreCompileInputs.cache
+C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.CoreCompileInputs.cache

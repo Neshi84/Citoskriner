@@ -78,6 +78,7 @@
             this.id_int = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.intervencija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bioGridView)).BeginInit();
@@ -156,13 +157,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox4);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.datePickerBiopsija);
             this.groupBox2.Controls.Add(this.NovaBiopsijaBtn);
             this.groupBox2.Controls.Add(this.bioGridView);
             this.groupBox2.Location = new System.Drawing.Point(12, 192);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(385, 155);
+            this.groupBox2.Size = new System.Drawing.Size(384, 174);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Biopsija";
@@ -175,21 +177,21 @@
             "CIN1",
             "CIN2",
             "CIN3"});
-            this.comboBox3.Location = new System.Drawing.Point(258, 71);
+            this.comboBox3.Location = new System.Drawing.Point(257, 90);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 11;
             // 
             // datePickerBiopsija
             // 
-            this.datePickerBiopsija.Location = new System.Drawing.Point(238, 41);
+            this.datePickerBiopsija.Location = new System.Drawing.Point(237, 19);
             this.datePickerBiopsija.Name = "datePickerBiopsija";
             this.datePickerBiopsija.Size = new System.Drawing.Size(141, 20);
             this.datePickerBiopsija.TabIndex = 10;
             // 
             // NovaBiopsijaBtn
             // 
-            this.NovaBiopsijaBtn.Location = new System.Drawing.Point(304, 118);
+            this.NovaBiopsijaBtn.Location = new System.Drawing.Point(303, 137);
             this.NovaBiopsijaBtn.Name = "NovaBiopsijaBtn";
             this.NovaBiopsijaBtn.Size = new System.Drawing.Size(75, 31);
             this.NovaBiopsijaBtn.TabIndex = 9;
@@ -361,9 +363,9 @@
             this.groupBox4.Controls.Add(this.papGridView);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.ploctxt);
+            this.groupBox4.Controls.Add(this.comboBox2);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.comboBox2);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.dateTimePicker4);
             this.groupBox4.Controls.Add(this.label13);
@@ -485,9 +487,9 @@
             "Dr Daniela Rančić",
             "Dr Mirjana Karanović",
             "Dr Kristina Ivković Šunjka"});
-            this.comboBox2.Location = new System.Drawing.Point(174, 65);
+            this.comboBox2.Location = new System.Drawing.Point(154, 71);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(141, 21);
             this.comboBox2.TabIndex = 8;
             // 
             // label12
@@ -592,6 +594,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.ItemHeight = 13;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Dr Daniela Rančić",
+            "Dr Mirjana Karanović",
+            "Dr Kristina Ivković Šunjka"});
+            this.comboBox4.Location = new System.Drawing.Point(237, 54);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(141, 21);
+            this.comboBox4.TabIndex = 66;
+            // 
             // unosPodataka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -676,5 +691,6 @@
         private System.Windows.Forms.Button NovaIntervencijaBtn;
         private System.Windows.Forms.DateTimePicker datePickerBiopsija;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }

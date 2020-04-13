@@ -54,8 +54,8 @@ namespace Citologija
                 if (temp > 0)
                 {
                     updateGridView();
-                    DataAccess.Id_pacijent = temp;
-                    var unos_podataka = new unosPodataka();
+                   
+                    var unos_podataka = new unosPodataka(temp);
                 
                     unos_podataka.Show();
                     unos_podataka.FormClosing += unosPodataka_FormClosing;
@@ -70,8 +70,8 @@ namespace Citologija
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataAccess.Id_pacijent =(int)(dataGridView1.CurrentRow.Cells[0].Value);
-            var unos_podataka = new unosPodataka();
+            
+            var unos_podataka = new unosPodataka((int)(dataGridView1.CurrentRow.Cells[0].Value));
            
             unos_podataka.Show();
             unos_podataka.FormClosing += unosPodataka_FormClosing;

@@ -13,7 +13,8 @@ namespace Citologija
     public partial class UnosHPV : Form
     {
         HpvRepository hpvRepo = new HpvRepository();
-        public UnosHPV()
+        private int _idPacijent { get; set; }
+        public UnosHPV(int idPacijent)
         {
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
@@ -22,7 +23,7 @@ namespace Citologija
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var temp = hpvRepo.addHpv(DataAccess.Id_pacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), richTextBox1.Text);
+            var temp = hpvRepo.addHpv(_idPacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), richTextBox1.Text);
             if (temp > 0)
             {
                 MessageBox.Show("Podaci uspešno sačuvani");

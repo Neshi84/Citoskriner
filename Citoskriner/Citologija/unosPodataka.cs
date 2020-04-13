@@ -6,19 +6,23 @@ using System.Windows.Forms;
 
 namespace Citologija
 {
+    
     public partial class unosPodataka : Form
     {
+        private int _idPacijent;
+
         PacijentRepository pacijenti = new PacijentRepository();
         BiopsijaRepository biopsije = new BiopsijaRepository();
         PapRepository papRepo = new PapRepository();
         HpvRepository hpvRepo = new HpvRepository();
         HirIntervencijeRepository hirRepo = new HirIntervencijeRepository();
         RevizijaRepository revizije = new RevizijaRepository();
+        LekarRepository lekarRepo = new LekarRepository();
 
-        public unosPodataka()
+        public unosPodataka(int idPacijent)
         {
 
-            
+            _idPacijent = idPacijent;
 
             InitializeComponent();
             
@@ -26,7 +30,15 @@ namespace Citologija
             dateTimePicker4.CustomFormat = "dd.MM.yyyy";
             datePickerBiopsija.Format = DateTimePickerFormat.Custom;
             datePickerBiopsija.CustomFormat = "dd.MM.yyyy";
-            
+
+            comboBox2.DataSource = lekarRepo.ReadAll();
+            comboBox2.DisplayMember = "imePrezime";
+            comboBox2.ValueMember = "id";
+
+            comboBox4.DataSource = lekarRepo.ReadAll();
+            comboBox4.DisplayMember = "imePrezime";
+            comboBox4.ValueMember = "id";
+
 
             papGridView.AutoGenerateColumns = false;
             hpvGridView.AutoGenerateColumns = false;
@@ -39,18 +51,18 @@ namespace Citologija
 
         private void UnosRev_FormClosing(object sender, FormClosingEventArgs e)
         {
-            revGridView.DataSource = revizije.getRevizijaByPacijentId(DataAccess.Id_pacijent);
+            revGridView.DataSource = revizije.getRevizijaByPacijentId(_idPacijent);
         }
 
         private void UnosHpv_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var source = hpvRepo.getHpvByPacijentId(DataAccess.Id_pacijent);
+            var source = hpvRepo.getHpvByPacijentId(_idPacijent);
             hpvGridView.DataSource = source;
         }
 
         public void prikaziPacijenta()
         {
-            Pacijent pacijent = pacijenti.getPacijentById(DataAccess.Id_pacijent);
+            Pacijent pacijent = pacijenti.getPacijentById(_idPacijent);
             textIme.Text = pacijent.ime;
             textPrezime.Text = pacijent.prezime;
             textJMBG.Text = pacijent.jmbg;
@@ -59,16 +71,16 @@ namespace Citologija
         private void unosPodataka_Load(object sender, EventArgs e)
         {
             prikaziPacijenta();
-            papGridView.DataSource = papRepo.getPapByPacijentId(DataAccess.Id_pacijent);
-            hpvGridView.DataSource = hpvRepo.getHpvByPacijentId(DataAccess.Id_pacijent);
-            bioGridView.DataSource = biopsije.getBiopsjaByPacientId(DataAccess.Id_pacijent);
-            hirGridView.DataSource = hirRepo.getHirByPacijentId(DataAccess.Id_pacijent);
-            revGridView.DataSource = revizije.getRevizijaByPacijentId(DataAccess.Id_pacijent);
+            papGridView.DataSource = papRepo.getPapByPacijentId(_idPacijent);
+            hpvGridView.DataSource = hpvRepo.getHpvByPacijentId(_idPacijent);
+            bioGridView.DataSource = biopsije.getBiopsjaByPacientId(_idPacijent);
+            hirGridView.DataSource = hirRepo.getHirByPacijentId(_idPacijent);
+            revGridView.DataSource = revizije.getRevizijaByPacijentId(_idPacijent);
         }
 
         private void NovaRevizijaBtn_Click(object sender, EventArgs e)
         {
-            var UnosRevizije = new UnosRevizija();
+            var UnosRevizije = new UnosRevizija(_idPacijent);
 
             UnosRevizije.Show();
             UnosRevizije.FormClosing += UnosRev_FormClosing;
@@ -76,7 +88,7 @@ namespace Citologija
 
         private void NovHPVBtn_Click(object sender, EventArgs e)
         {
-            var UnosHpv = new UnosHPV();
+            var UnosHpv = new UnosHPV(_idPacijent);
             
             UnosHpv.Show();
             UnosHpv.FormClosing += UnosHpv_FormClosing;
@@ -84,7 +96,7 @@ namespace Citologija
 
         private void NovaBiopsijaBtn_Click(object sender, EventArgs e)
         {
-            var temp = biopsije.addBiopsija(DataAccess.Id_pacijent, datePickerBiopsija.Value.ToString("yyyy-MM-dd"), comboBox3.Text);
+            var temp = biopsije.addBiopsija(_idPacijent, datePickerBiopsija.Value.ToString("yyyy-MM-dd"), comboBox3.Text);
 
             if (temp > 0)
             {
@@ -94,12 +106,12 @@ namespace Citologija
             {
                 MessageBox.Show("Došlo je do greške!");
             }
-            bioGridView.DataSource =biopsije.getBiopsjaByPacientId(DataAccess.Id_pacijent);
+            bioGridView.DataSource =biopsije.getBiopsjaByPacientId(_idPacijent);
         }
 
         private void Sacuvaj_Click(object sender, EventArgs e)
         {
-            var temp = papRepo.addPap(DataAccess.Id_pacijent, dateTimePicker4.Value.ToString("yyyy-MM-dd"), comboBox1.Text,comboBox2.Text,ploctxt.Text);
+            var temp = papRepo.addPap(_idPacijent, dateTimePicker4.Value.ToString("yyyy-MM-dd"), comboBox1.Text,comboBox2.Text,ploctxt.Text);
 
             if (temp > 0)
             {
@@ -109,7 +121,7 @@ namespace Citologija
             {
                 MessageBox.Show("Došlo je do greške!");
             }
-            papGridView.DataSource = papRepo.getPapByPacijentId(DataAccess.Id_pacijent);
+            papGridView.DataSource = papRepo.getPapByPacijentId(_idPacijent);
         }
 
         private void button1_Click(object sender, EventArgs e)
