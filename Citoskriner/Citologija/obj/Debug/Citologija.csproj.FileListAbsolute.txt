@@ -130,7 +130,6 @@ C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citolo
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Izvestaji.resources
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.Properties.Resources.resources
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosBiopsija.resources
-C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosHPV.resources
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.unosPodataka.resources
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.UnosRevizija.resources
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csproj.GenerateResource.cache

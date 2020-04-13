@@ -28,6 +28,10 @@ namespace Citologija
             
             dateTimePicker4.Format = DateTimePickerFormat.Custom;
             dateTimePicker4.CustomFormat = "dd.MM.yyyy";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "dd.MM.yyyy";
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            dateTimePicker2.CustomFormat = "dd.MM.yyyy";
             datePickerBiopsija.Format = DateTimePickerFormat.Custom;
             datePickerBiopsija.CustomFormat = "dd.MM.yyyy";
 
@@ -38,6 +42,14 @@ namespace Citologija
             comboBox4.DataSource = lekarRepo.ReadAll();
             comboBox4.DisplayMember = "imePrezime";
             comboBox4.ValueMember = "id";
+
+            comboBox5.DataSource = lekarRepo.ReadAll();
+            comboBox5.DisplayMember = "imePrezime";
+            comboBox5.ValueMember = "id";
+
+            comboBox8.DataSource = lekarRepo.ReadAll();
+            comboBox8.DisplayMember = "imePrezime";
+            comboBox8.ValueMember = "id";
 
 
             papGridView.AutoGenerateColumns = false;
@@ -88,10 +100,23 @@ namespace Citologija
 
         private void NovHPVBtn_Click(object sender, EventArgs e)
         {
-            var UnosHpv = new UnosHPV(_idPacijent);
-            
-            UnosHpv.Show();
-            UnosHpv.FormClosing += UnosHpv_FormClosing;
+            if (comboBox5.Text != "")
+            {
+                var temp = hpvRepo.addHpv(_idPacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), comboBox6.Text, int.Parse(comboBox5.SelectedValue.ToString()));
+                if (temp > 0)
+                {
+                    hpvGridView.DataSource = hpvRepo.getHpvByPacijentId(_idPacijent);
+                    MessageBox.Show("Podaci uspešno sačuvani");
+                }
+                else
+                {
+                    MessageBox.Show("Došlo je do greške!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Odaberite lekara!");
+            }
         }
 
         private void NovaBiopsijaBtn_Click(object sender, EventArgs e)

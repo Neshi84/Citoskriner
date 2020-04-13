@@ -91,12 +91,6 @@
     <Compile Include="UnosBiopsija.Designer.cs">
       <DependentUpon>UnosBiopsija.cs</DependentUpon>
     </Compile>
-    <Compile Include="UnosHPV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UnosHPV.Designer.cs">
-      <DependentUpon>UnosHPV.cs</DependentUpon>
-    </Compile>
     <Compile Include="unosPodataka.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,9 +121,6 @@
     </Compile>
     <EmbeddedResource Include="UnosBiopsija.resx">
       <DependentUpon>UnosBiopsija.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UnosHPV.resx">
-      <DependentUpon>UnosHPV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="unosPodataka.resx">
       <DependentUpon>unosPodataka.cs</DependentUpon>

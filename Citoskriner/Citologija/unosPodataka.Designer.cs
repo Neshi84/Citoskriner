@@ -36,6 +36,7 @@
             this.textPrezime = new System.Windows.Forms.TextBox();
             this.textIme = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.datePickerBiopsija = new System.Windows.Forms.DateTimePicker();
             this.NovaBiopsijaBtn = new System.Windows.Forms.Button();
@@ -46,9 +47,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.NovHPVBtn = new System.Windows.Forms.Button();
             this.hpvGridView = new System.Windows.Forms.DataGridView();
-            this.id_hpv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datum_hpv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nalaz_hpv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.NovaRevizijaBtn = new System.Windows.Forms.Button();
             this.revGridView = new System.Windows.Forms.DataGridView();
@@ -65,9 +63,9 @@
             this.lekar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.ploctxt = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
@@ -78,7 +76,25 @@
             this.id_int = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.intervencija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.id_hpv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datum_hpv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nalaz_hpv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bioGridView)).BeginInit();
@@ -100,9 +116,9 @@
             this.groupBox1.Controls.Add(this.textJMBG);
             this.groupBox1.Controls.Add(this.textPrezime);
             this.groupBox1.Controls.Add(this.textIme);
-            this.groupBox1.Location = new System.Drawing.Point(12, 22);
+            this.groupBox1.Location = new System.Drawing.Point(12, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 153);
+            this.groupBox1.Size = new System.Drawing.Size(297, 140);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lični podaci";
@@ -157,17 +173,33 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.comboBox4);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.datePickerBiopsija);
             this.groupBox2.Controls.Add(this.NovaBiopsijaBtn);
             this.groupBox2.Controls.Add(this.bioGridView);
-            this.groupBox2.Location = new System.Drawing.Point(12, 192);
+            this.groupBox2.Location = new System.Drawing.Point(12, 155);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(384, 174);
+            this.groupBox2.Size = new System.Drawing.Size(541, 174);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Biopsija";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.ItemHeight = 13;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Dr Daniela Rančić",
+            "Dr Mirjana Karanović",
+            "Dr Kristina Ivković Šunjka"});
+            this.comboBox4.Location = new System.Drawing.Point(394, 52);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(141, 21);
+            this.comboBox4.TabIndex = 66;
             // 
             // comboBox3
             // 
@@ -177,21 +209,21 @@
             "CIN1",
             "CIN2",
             "CIN3"});
-            this.comboBox3.Location = new System.Drawing.Point(257, 90);
+            this.comboBox3.Location = new System.Drawing.Point(414, 89);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 11;
             // 
             // datePickerBiopsija
             // 
-            this.datePickerBiopsija.Location = new System.Drawing.Point(237, 19);
+            this.datePickerBiopsija.Location = new System.Drawing.Point(394, 17);
             this.datePickerBiopsija.Name = "datePickerBiopsija";
             this.datePickerBiopsija.Size = new System.Drawing.Size(141, 20);
             this.datePickerBiopsija.TabIndex = 10;
             // 
             // NovaBiopsijaBtn
             // 
-            this.NovaBiopsijaBtn.Location = new System.Drawing.Point(303, 137);
+            this.NovaBiopsijaBtn.Location = new System.Drawing.Point(460, 135);
             this.NovaBiopsijaBtn.Name = "NovaBiopsijaBtn";
             this.NovaBiopsijaBtn.Size = new System.Drawing.Size(75, 31);
             this.NovaBiopsijaBtn.TabIndex = 9;
@@ -209,11 +241,11 @@
             this.id_bio,
             this.Datum_bio,
             this.nalaz_bio});
-            this.bioGridView.Location = new System.Drawing.Point(6, 41);
+            this.bioGridView.Location = new System.Drawing.Point(6, 19);
             this.bioGridView.Name = "bioGridView";
             this.bioGridView.ReadOnly = true;
             this.bioGridView.RowHeadersVisible = false;
-            this.bioGridView.Size = new System.Drawing.Size(201, 99);
+            this.bioGridView.Size = new System.Drawing.Size(298, 149);
             this.bioGridView.TabIndex = 8;
             // 
             // id_bio
@@ -241,18 +273,24 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.comboBox6);
+            this.groupBox3.Controls.Add(this.dateTimePicker1);
+            this.groupBox3.Controls.Add(this.comboBox5);
             this.groupBox3.Controls.Add(this.NovHPVBtn);
             this.groupBox3.Controls.Add(this.hpvGridView);
-            this.groupBox3.Location = new System.Drawing.Point(12, 372);
+            this.groupBox3.Location = new System.Drawing.Point(12, 350);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(457, 141);
+            this.groupBox3.Size = new System.Drawing.Size(541, 163);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "HPV Tipizacija";
             // 
             // NovHPVBtn
             // 
-            this.NovHPVBtn.Location = new System.Drawing.Point(376, 11);
+            this.NovHPVBtn.Location = new System.Drawing.Point(460, 122);
             this.NovHPVBtn.Name = "NovHPVBtn";
             this.NovHPVBtn.Size = new System.Drawing.Size(75, 30);
             this.NovHPVBtn.TabIndex = 22;
@@ -268,52 +306,36 @@
             this.hpvGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hpvGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_hpv,
+            this.dr,
             this.datum_hpv,
             this.nalaz_hpv});
-            this.hpvGridView.Location = new System.Drawing.Point(6, 47);
+            this.hpvGridView.Location = new System.Drawing.Point(6, 19);
             this.hpvGridView.Name = "hpvGridView";
             this.hpvGridView.ReadOnly = true;
             this.hpvGridView.RowHeadersVisible = false;
-            this.hpvGridView.Size = new System.Drawing.Size(445, 88);
+            this.hpvGridView.Size = new System.Drawing.Size(298, 138);
             this.hpvGridView.TabIndex = 21;
-            // 
-            // id_hpv
-            // 
-            this.id_hpv.DataPropertyName = "id";
-            this.id_hpv.HeaderText = "ID";
-            this.id_hpv.Name = "id_hpv";
-            this.id_hpv.ReadOnly = true;
-            this.id_hpv.Visible = false;
-            // 
-            // datum_hpv
-            // 
-            this.datum_hpv.DataPropertyName = "datum_hpv";
-            this.datum_hpv.HeaderText = "Datum";
-            this.datum_hpv.Name = "datum_hpv";
-            this.datum_hpv.ReadOnly = true;
-            // 
-            // nalaz_hpv
-            // 
-            this.nalaz_hpv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nalaz_hpv.DataPropertyName = "nalaz_hpv";
-            this.nalaz_hpv.HeaderText = "Nalaz";
-            this.nalaz_hpv.Name = "nalaz_hpv";
-            this.nalaz_hpv.ReadOnly = true;
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Controls.Add(this.label16);
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.Controls.Add(this.comboBox7);
+            this.groupBox5.Controls.Add(this.dateTimePicker2);
+            this.groupBox5.Controls.Add(this.comboBox8);
             this.groupBox5.Controls.Add(this.NovaRevizijaBtn);
             this.groupBox5.Controls.Add(this.revGridView);
-            this.groupBox5.Location = new System.Drawing.Point(12, 541);
+            this.groupBox5.Location = new System.Drawing.Point(12, 530);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(457, 158);
+            this.groupBox5.Size = new System.Drawing.Size(541, 169);
             this.groupBox5.TabIndex = 64;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Revizija";
             // 
             // NovaRevizijaBtn
             // 
-            this.NovaRevizijaBtn.Location = new System.Drawing.Point(376, 19);
+            this.NovaRevizijaBtn.Location = new System.Drawing.Point(460, 129);
             this.NovaRevizijaBtn.Name = "NovaRevizijaBtn";
             this.NovaRevizijaBtn.Size = new System.Drawing.Size(75, 29);
             this.NovaRevizijaBtn.TabIndex = 4;
@@ -331,10 +353,10 @@
             this.id_rev,
             this.datum_rev,
             this.revizija});
-            this.revGridView.Location = new System.Drawing.Point(6, 54);
+            this.revGridView.Location = new System.Drawing.Point(6, 19);
             this.revGridView.Name = "revGridView";
             this.revGridView.RowHeadersVisible = false;
-            this.revGridView.Size = new System.Drawing.Size(445, 94);
+            this.revGridView.Size = new System.Drawing.Size(298, 129);
             this.revGridView.TabIndex = 3;
             // 
             // id_rev
@@ -370,7 +392,7 @@
             this.groupBox4.Controls.Add(this.dateTimePicker4);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.comboBox1);
-            this.groupBox4.Location = new System.Drawing.Point(583, 22);
+            this.groupBox4.Location = new System.Drawing.Point(583, 9);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(357, 412);
             this.groupBox4.TabIndex = 63;
@@ -379,7 +401,7 @@
             // 
             // Sacuvaj
             // 
-            this.Sacuvaj.Location = new System.Drawing.Point(196, 211);
+            this.Sacuvaj.Location = new System.Drawing.Point(246, 209);
             this.Sacuvaj.Name = "Sacuvaj";
             this.Sacuvaj.Size = new System.Drawing.Size(99, 34);
             this.Sacuvaj.TabIndex = 19;
@@ -456,10 +478,23 @@
             // 
             // ploctxt
             // 
-            this.ploctxt.Location = new System.Drawing.Point(174, 163);
+            this.ploctxt.Location = new System.Drawing.Point(224, 161);
             this.ploctxt.Name = "ploctxt";
             this.ploctxt.Size = new System.Drawing.Size(121, 20);
             this.ploctxt.TabIndex = 11;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.ItemHeight = 13;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Dr Daniela Rančić",
+            "Dr Mirjana Karanović",
+            "Dr Kristina Ivković Šunjka"});
+            this.comboBox2.Location = new System.Drawing.Point(204, 69);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(141, 21);
+            this.comboBox2.TabIndex = 8;
             // 
             // label10
             // 
@@ -479,19 +514,6 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "Lekar";
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ItemHeight = 13;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Dr Daniela Rančić",
-            "Dr Mirjana Karanović",
-            "Dr Kristina Ivković Šunjka"});
-            this.comboBox2.Location = new System.Drawing.Point(154, 71);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(141, 21);
-            this.comboBox2.TabIndex = 8;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -503,9 +525,9 @@
             // 
             // dateTimePicker4
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(162, 24);
+            this.dateTimePicker4.Location = new System.Drawing.Point(204, 22);
             this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(133, 20);
+            this.dateTimePicker4.Size = new System.Drawing.Size(141, 20);
             this.dateTimePicker4.TabIndex = 8;
             // 
             // label13
@@ -528,7 +550,7 @@
             "CA",
             "AGC-NOS",
             "AGC-FN"});
-            this.comboBox1.Location = new System.Drawing.Point(174, 119);
+            this.comboBox1.Location = new System.Drawing.Point(224, 117);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 9;
@@ -594,18 +616,178 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox4
+            // comboBox5
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.ItemHeight = 13;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.ItemHeight = 13;
+            this.comboBox5.Items.AddRange(new object[] {
             "Dr Daniela Rančić",
             "Dr Mirjana Karanović",
             "Dr Kristina Ivković Šunjka"});
-            this.comboBox4.Location = new System.Drawing.Point(237, 54);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(141, 21);
-            this.comboBox4.TabIndex = 66;
+            this.comboBox5.Location = new System.Drawing.Point(394, 46);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(141, 21);
+            this.comboBox5.TabIndex = 67;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(394, 10);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(141, 20);
+            this.dateTimePicker1.TabIndex = 68;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Items.AddRange(new object[] {
+            "HPV+",
+            "HPV-"});
+            this.comboBox6.Location = new System.Drawing.Point(414, 84);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(121, 21);
+            this.comboBox6.TabIndex = 69;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Items.AddRange(new object[] {
+            "HPV+",
+            "HPV-"});
+            this.comboBox7.Location = new System.Drawing.Point(414, 93);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(121, 21);
+            this.comboBox7.TabIndex = 72;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(394, 19);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(141, 20);
+            this.dateTimePicker2.TabIndex = 71;
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.ItemHeight = 13;
+            this.comboBox8.Items.AddRange(new object[] {
+            "Dr Daniela Rančić",
+            "Dr Mirjana Karanović",
+            "Dr Kristina Ivković Šunjka"});
+            this.comboBox8.Location = new System.Drawing.Point(394, 55);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(141, 21);
+            this.comboBox8.TabIndex = 70;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(323, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "Lekar";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(323, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 70;
+            this.label5.Text = "Datum";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(323, 92);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 13);
+            this.label6.TabIndex = 71;
+            this.label6.Text = "Nalaz";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(323, 97);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 74;
+            this.label7.Text = "Nalaz";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(323, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.TabIndex = 73;
+            this.label8.Text = "Datum";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(323, 60);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(34, 13);
+            this.label14.TabIndex = 72;
+            this.label14.Text = "Lekar";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(323, 102);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(34, 13);
+            this.label15.TabIndex = 75;
+            this.label15.Text = "Nalaz";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(323, 26);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(38, 13);
+            this.label16.TabIndex = 74;
+            this.label16.Text = "Datum";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(323, 64);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(34, 13);
+            this.label17.TabIndex = 73;
+            this.label17.Text = "Lekar";
+            // 
+            // id_hpv
+            // 
+            this.id_hpv.DataPropertyName = "id";
+            this.id_hpv.HeaderText = "ID";
+            this.id_hpv.Name = "id_hpv";
+            this.id_hpv.ReadOnly = true;
+            this.id_hpv.Visible = false;
+            // 
+            // dr
+            // 
+            this.dr.DataPropertyName = "Lekar";
+            this.dr.HeaderText = "Lekar";
+            this.dr.Name = "dr";
+            this.dr.ReadOnly = true;
+            // 
+            // datum_hpv
+            // 
+            this.datum_hpv.DataPropertyName = "datum_hpv";
+            this.datum_hpv.HeaderText = "Datum";
+            this.datum_hpv.Name = "datum_hpv";
+            this.datum_hpv.ReadOnly = true;
+            // 
+            // nalaz_hpv
+            // 
+            this.nalaz_hpv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nalaz_hpv.DataPropertyName = "nalaz_hpv";
+            this.nalaz_hpv.HeaderText = "Nalaz";
+            this.nalaz_hpv.Name = "nalaz_hpv";
+            this.nalaz_hpv.ReadOnly = true;
             // 
             // unosPodataka
             // 
@@ -625,10 +807,13 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bioGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hpvGridView)).EndInit();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.revGridView)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -676,9 +861,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_rev;
         private System.Windows.Forms.DataGridViewTextBoxColumn datum_rev;
         private System.Windows.Forms.DataGridViewTextBoxColumn revizija;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_hpv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datum_hpv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nalaz_hpv;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn datum_pap;
         private System.Windows.Forms.DataGridViewTextBoxColumn broj_preparata;
@@ -692,5 +874,24 @@
         private System.Windows.Forms.DateTimePicker datePickerBiopsija;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_hpv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datum_hpv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nalaz_hpv;
     }
 }
