@@ -1,12 +1,11 @@
 ﻿using Citologija.Model;
 using Citologija.Repository;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Citologija
 {
-    
+
     public partial class unosPodataka : Form
     {
         private int _idPacijent;
@@ -18,6 +17,7 @@ namespace Citologija
         HirIntervencijeRepository hirRepo = new HirIntervencijeRepository();
         RevizijaRepository revizije = new RevizijaRepository();
         LekarRepository lekarRepo = new LekarRepository();
+        NalazRepository nalazRepo = new NalazRepository();
 
         public unosPodataka(int idPacijent)
         {
@@ -25,7 +25,7 @@ namespace Citologija
             _idPacijent = idPacijent;
 
             InitializeComponent();
-            
+
             dateTimePicker4.Format = DateTimePickerFormat.Custom;
             dateTimePicker4.CustomFormat = "dd.MM.yyyy";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
@@ -51,26 +51,31 @@ namespace Citologija
             comboBox8.DisplayMember = "imePrezime";
             comboBox8.ValueMember = "id";
 
+            comboBox6.DataSource = nalazRepo.ReadAllHpv();
+            comboBox6.DisplayMember = "nalaz";
+            comboBox6.ValueMember = "id";
+
+            comboBox1.DataSource = nalazRepo.ReadAllCito();
+            comboBox1.DisplayMember = "nalaz";
+            comboBox1.ValueMember = "id";
+
+            comboBox7.DataSource = nalazRepo.ReadAllCito();
+            comboBox7.DisplayMember = "nalaz";
+            comboBox7.ValueMember = "id";
+
+            comboBox3.DataSource = nalazRepo.ReadAllBio();
+            comboBox3.DisplayMember = "nalaz";
+            comboBox3.ValueMember = "id";
+
 
             papGridView.AutoGenerateColumns = false;
             hpvGridView.AutoGenerateColumns = false;
             bioGridView.AutoGenerateColumns = false;
             hirGridView.AutoGenerateColumns = false;
             revGridView.AutoGenerateColumns = false;
-            
-        }
-      
 
-        private void UnosRev_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            revGridView.DataSource = revizije.getRevizijaByPacijentId(_idPacijent);
         }
 
-        private void UnosHpv_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            var source = hpvRepo.getHpvByPacijentId(_idPacijent);
-            hpvGridView.DataSource = source;
-        }
 
         public void prikaziPacijenta()
         {
@@ -92,21 +97,32 @@ namespace Citologija
 
         private void NovaRevizijaBtn_Click(object sender, EventArgs e)
         {
-            var UnosRevizije = new UnosRevizija(_idPacijent);
+            if (comboBox8.Text != "")
+            {
+                var temp = revizije.addRevizija(_idPacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox7.SelectedValue.ToString()), int.Parse(comboBox8.SelectedValue.ToString()));
 
-            UnosRevizije.Show();
-            UnosRevizije.FormClosing += UnosRev_FormClosing;
+                if (temp > 0)
+                {
+                    revGridView.DataSource = revizije.getRevizijaByPacijentId(_idPacijent);
+                    
+
+                }
+                else
+                {
+                    MessageBox.Show("Došlo je do greške!");
+                }
+            }
         }
 
         private void NovHPVBtn_Click(object sender, EventArgs e)
         {
             if (comboBox5.Text != "")
             {
-                var temp = hpvRepo.addHpv(_idPacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), comboBox6.Text, int.Parse(comboBox5.SelectedValue.ToString()));
+                var temp = hpvRepo.addHpv(_idPacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox6.SelectedValue.ToString()), int.Parse(comboBox5.SelectedValue.ToString()));
                 if (temp > 0)
                 {
                     hpvGridView.DataSource = hpvRepo.getHpvByPacijentId(_idPacijent);
-                    MessageBox.Show("Podaci uspešno sačuvani");
+                    
                 }
                 else
                 {
@@ -121,32 +137,36 @@ namespace Citologija
 
         private void NovaBiopsijaBtn_Click(object sender, EventArgs e)
         {
-            var temp = biopsije.addBiopsija(_idPacijent, datePickerBiopsija.Value.ToString("yyyy-MM-dd"), comboBox3.Text);
+            if (comboBox4.Text != "")
+            {
 
-            if (temp > 0)
-            {
-                MessageBox.Show("Podaci uspešno sačuvani");
+                var temp = biopsije.addBiopsija(_idPacijent, datePickerBiopsija.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox3.SelectedValue.ToString()), int.Parse(comboBox4.SelectedValue.ToString()));
+
+                if (temp > 0)
+                {
+                    bioGridView.DataSource = biopsije.getBiopsjaByPacientId(_idPacijent);
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Došlo je do greške!");
+                }
             }
-            else
-            {
-                MessageBox.Show("Došlo je do greške!");
-            }
-            bioGridView.DataSource =biopsije.getBiopsjaByPacientId(_idPacijent);
         }
 
         private void Sacuvaj_Click(object sender, EventArgs e)
         {
-            var temp = papRepo.addPap(_idPacijent, dateTimePicker4.Value.ToString("yyyy-MM-dd"), comboBox1.Text,comboBox2.Text,ploctxt.Text);
+            var temp = papRepo.addPap(_idPacijent, dateTimePicker4.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox1.SelectedValue.ToString()), int.Parse(comboBox2.SelectedValue.ToString()), ploctxt.Text);
 
             if (temp > 0)
             {
-                MessageBox.Show("Podaci uspešno sačuvani");
+                papGridView.DataSource = papRepo.getPapByPacijentId(_idPacijent);
+               
             }
             else
             {
                 MessageBox.Show("Došlo je do greške!");
             }
-            papGridView.DataSource = papRepo.getPapByPacijentId(_idPacijent);
         }
 
         private void button1_Click(object sender, EventArgs e)

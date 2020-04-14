@@ -6,7 +6,7 @@ namespace Citologija.Model
     {
         public int id { get; set; }
         public int id_pacijent { get; set; }
-        public string revizija { get; set; }
+        public string nalaz { get; set; }
         private string datum_rev;
 
         public string Datum_rev
@@ -21,6 +21,7 @@ namespace Citologija.Model
             set { datum_rev = value; }
         }
 
-        
+        public string Lekar { get; set; }
+
     }
 }

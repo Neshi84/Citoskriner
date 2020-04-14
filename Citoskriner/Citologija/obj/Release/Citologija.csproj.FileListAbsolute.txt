@@ -33,11 +33,9 @@ C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Cito
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.Form1.resources
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.Izvestaji.resources
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.Properties.Resources.resources
-C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.UnosBiopsija.resources
-C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.UnosHPV.resources
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.unosPodataka.resources
-C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.UnosRevizija.resources
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.csproj.GenerateResource.cache
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.csproj.CopyComplete
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.exe
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.pdb
+C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Release\Citologija.csproj.CoreCompileInputs.cache

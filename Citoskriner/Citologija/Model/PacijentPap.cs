@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Citologija.Model
 {
@@ -9,21 +6,21 @@ namespace Citologija.Model
     {
         public string lekar { get; set; }
         public string broj_prep { get; set; }
-        private string datum_pap;
+        private string datum;
 
-        public string Datum_pap
+        public string Datum
         {
             get
             {
-                DateTime vreme = DateTime.Parse(datum_pap);
+                DateTime vreme = DateTime.Parse(datum);
 
-                datum_pap = vreme.ToString("dd.MM.yyyy");
-                return datum_pap;
+                datum = vreme.ToString("dd.MM.yyyy");
+                return datum;
             }
-            set { datum_pap = value; }
+            set { datum = value; }
         }
 
-        public string nalaz_cito { get; set; }
+        public string nalaz { get; set; }
 
     }
 }

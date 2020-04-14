@@ -1,29 +1,30 @@
 ﻿using Citologija.Model;
 using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using System.Text;
 
 namespace Citologija.Repository
 {
     class BiopsijaRepository
     {
-        public int addBiopsija(int id_pacijent, string datum_bio, string nalaz_bio)
+        public int addBiopsija(int id_pacijent, string datum_bio, int idNalaz, int idLekar)
         {
-            string sql = "INSERT INTO biopsija (id_pacijent, datum_bio,nalaz_bio,aktivan) Values (@id_pacijent,@datum_bio,@nalaz_bio,'" + 1 + "');";
+            string sql = "INSERT INTO biopsija (id_pacijent, datum_bio,id_nalaz,id_lekar,aktivan) Values (@id_pacijent,@datum_bio,@idNalaz,@idLekar,'" + 1 + "');";
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var affectedRows = db.Execute(sql, new { id_pacijent, datum_bio, nalaz_bio });
+                var affectedRows = db.Execute(sql, new { id_pacijent, datum_bio, idNalaz, idLekar });
                 return affectedRows;
             }
         }
 
         public IEnumerable<Biopsija> getBiopsjaByPacientId(int id)
         {
-            string sql = "SELECT id, id_pacijent,datum_bio, nalaz_bio FROM biopsija WHERE id_pacijent = @id AND aktivan=1;";
+            string sql = "SELECT b.id, b.id_pacijent,b.datum_bio, n.nalaz, l.ImePrezime AS Lekar FROM biopsija AS b " +
+                         "INNER JOIN Lekar as l ON b.id_lekar = l.id  " +
+                         "INNER JOIN nalaz_bio as n ON b.id_nalaz = n.id  " +
+                         "WHERE id_pacijent = @id AND aktivan=1;";
 
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {

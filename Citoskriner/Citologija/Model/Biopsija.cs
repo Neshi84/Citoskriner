@@ -20,7 +20,8 @@ namespace Citologija.Model
             set { datum_bio = value; }
         }
 
-        public string nalaz_bio { get; set; }
-        
+        public string nalaz { get; set; }
+        public string Lekar { get; set; }
+
     }
 }

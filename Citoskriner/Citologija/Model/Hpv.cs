@@ -20,7 +20,7 @@ namespace Citologija.Model
             set { datum_hpv = value; }
         }
 
-        public string nalaz_hpv { get; set; }
+        public string nalaz { get; set; }
         public string Lekar { get; set; }
         public string aktivan { get; set; }
     }

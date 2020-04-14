@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Model\Biopsija.cs" />
     <Compile Include="Model\Lekar.cs" />
+    <Compile Include="Model\Nalaz.cs" />
     <Compile Include="Model\PacijentBiopsija.cs" />
     <Compile Include="Model\PacijentHpv.cs" />
     <Compile Include="Model\PacijentPap.cs" />
@@ -82,26 +83,15 @@
     <Compile Include="Repository\BiopsijaRepository.cs" />
     <Compile Include="Repository\HpvRepository.cs" />
     <Compile Include="Repository\LekarRepository.cs" />
+    <Compile Include="Repository\NalazRepository.cs" />
     <Compile Include="Repository\PacijentRepository.cs" />
     <Compile Include="Repository\PapRepository.cs" />
     <Compile Include="Repository\RevizijaRepository.cs" />
-    <Compile Include="UnosBiopsija.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UnosBiopsija.Designer.cs">
-      <DependentUpon>UnosBiopsija.cs</DependentUpon>
-    </Compile>
     <Compile Include="unosPodataka.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="unosPodataka.Designer.cs">
       <DependentUpon>unosPodataka.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UnosRevizija.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UnosRevizija.Designer.cs">
-      <DependentUpon>UnosRevizija.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -119,14 +109,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UnosBiopsija.resx">
-      <DependentUpon>UnosBiopsija.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="unosPodataka.resx">
       <DependentUpon>unosPodataka.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UnosRevizija.resx">
-      <DependentUpon>UnosRevizija.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

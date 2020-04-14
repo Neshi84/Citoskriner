@@ -9,19 +9,22 @@ namespace Citologija.Repository
 {
     class HpvRepository
     {
-        public int addHpv(int id_pacijent, string datum_hpv, string nalaz_hpv, int idLekar)
+        public int addHpv(int id_pacijent, string datum_hpv, int idNalaz, int idLekar)
         {
-            string sql = "INSERT INTO hpv (id_pacijent, datum_hpv,nalaz_hpv,id_lekar,aktivan) Values (@id_pacijent,@datum_hpv,@nalaz_hpv,@idLekar, '" + 1 + "');";
+            string sql = "INSERT INTO hpv (id_pacijent, datum_hpv,id_nalaz,id_lekar,aktivan) Values (@id_pacijent,@datum_hpv,@idNalaz,@idLekar, '" + 1 + "');";
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var affectedRows = db.Execute(sql, new { id_pacijent, datum_hpv, nalaz_hpv, idLekar });
+                var affectedRows = db.Execute(sql, new { id_pacijent, datum_hpv, idNalaz, idLekar });
                 return affectedRows;
             }
         }
 
         public IEnumerable<Hpv> getHpvByPacijentId(int id)
         {
-            string sql = "SELECT h.id, h.id_pacijent,h.datum_hpv,h.nalaz_hpv,h.id_lekar,l.ImePrezime AS Lekar FROM hpv AS h INNER JOIN Lekar AS l ON h.id_lekar=l.id WHERE id_pacijent = @id AND aktivan=1;";
+            string sql = "SELECT h.id, h.id_pacijent,h.datum_hpv,n.nalaz,h.id_lekar,l.ImePrezime AS Lekar FROM hpv AS h " +
+                "INNER JOIN Lekar AS l ON h.id_lekar=l.id " +
+                "INNER JOIN hpv_nalaz AS n ON h.id_nalaz=n.id " +
+                "WHERE id_pacijent = @id AND aktivan=1;";
 
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
