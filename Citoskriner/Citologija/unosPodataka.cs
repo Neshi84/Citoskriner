@@ -8,7 +8,8 @@ namespace Citologija
 
     public partial class unosPodataka : Form
     {
-        private int _idPacijent;
+        private int _idPacijent { get; set; }
+     
 
         PacijentRepository pacijenti = new PacijentRepository();
         BiopsijaRepository biopsije = new BiopsijaRepository();
@@ -97,14 +98,22 @@ namespace Citologija
 
         private void NovaRevizijaBtn_Click(object sender, EventArgs e)
         {
-            if (comboBox8.Text != "")
+
+            if (comboBox8.Text == "")
+            {
+                MessageBox.Show("Odaberite lekara!");
+            }
+            else if (comboBox7.Text == "")
+            {
+                MessageBox.Show("Odaberite nalaz!");
+            }
+            else
             {
                 var temp = revizije.addRevizija(_idPacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox7.SelectedValue.ToString()), int.Parse(comboBox8.SelectedValue.ToString()));
 
                 if (temp > 0)
                 {
                     revGridView.DataSource = revizije.getRevizijaByPacijentId(_idPacijent);
-                    
 
                 }
                 else
@@ -112,61 +121,94 @@ namespace Citologija
                     MessageBox.Show("Došlo je do greške!");
                 }
             }
+
+
         }
 
         private void NovHPVBtn_Click(object sender, EventArgs e)
         {
-            if (comboBox5.Text != "")
+
+            if (comboBox5.Text == "")
+            {
+                MessageBox.Show("Odaberite lekara!");
+            }
+            else if (comboBox6.Text == "")
+            {
+                MessageBox.Show("Odaberite nalaz!");
+            }
+            else
             {
                 var temp = hpvRepo.addHpv(_idPacijent, dateTimePicker1.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox6.SelectedValue.ToString()), int.Parse(comboBox5.SelectedValue.ToString()));
+
                 if (temp > 0)
                 {
                     hpvGridView.DataSource = hpvRepo.getHpvByPacijentId(_idPacijent);
-                    
+
                 }
                 else
                 {
                     MessageBox.Show("Došlo je do greške!");
                 }
             }
-            else
-            {
-                MessageBox.Show("Odaberite lekara!");
-            }
+
+
         }
 
         private void NovaBiopsijaBtn_Click(object sender, EventArgs e)
         {
-            if (comboBox4.Text != "")
+            if (comboBox4.Text == "")
             {
-
+                MessageBox.Show("Odaberite lekara!");
+            }
+            else if (comboBox3.Text == "")
+            {
+                MessageBox.Show("Odaberite nalaz!");
+            }
+            else
+            {
                 var temp = biopsije.addBiopsija(_idPacijent, datePickerBiopsija.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox3.SelectedValue.ToString()), int.Parse(comboBox4.SelectedValue.ToString()));
 
                 if (temp > 0)
                 {
                     bioGridView.DataSource = biopsije.getBiopsjaByPacientId(_idPacijent);
-                    
+
                 }
                 else
                 {
                     MessageBox.Show("Došlo je do greške!");
                 }
             }
+
+
         }
 
         private void Sacuvaj_Click(object sender, EventArgs e)
         {
-            var temp = papRepo.addPap(_idPacijent, dateTimePicker4.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox1.SelectedValue.ToString()), int.Parse(comboBox2.SelectedValue.ToString()), ploctxt.Text);
 
-            if (temp > 0)
+            if (comboBox2.Text == "")
             {
-                papGridView.DataSource = papRepo.getPapByPacijentId(_idPacijent);
-               
+                MessageBox.Show("Odaberite lekara!");
+            }
+            else if (comboBox1.Text == "")
+            {
+                MessageBox.Show("Odaberite nalaz!");
             }
             else
             {
-                MessageBox.Show("Došlo je do greške!");
+
+                var temp = papRepo.addPap(_idPacijent, dateTimePicker4.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox1.SelectedValue.ToString()), int.Parse(comboBox2.SelectedValue.ToString()), ploctxt.Text);
+
+                if (temp > 0)
+                {
+                    papGridView.DataSource = papRepo.getPapByPacijentId(_idPacijent);
+
+                }
+                else
+                {
+                    MessageBox.Show("Došlo je do greške!");
+                }
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)

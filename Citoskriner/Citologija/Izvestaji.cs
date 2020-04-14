@@ -73,5 +73,17 @@ namespace Citologija
             label7.Visible = true;
             label7.Text = (pacijenti.Count).ToString();
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var unos_podataka = new unosPodataka((int)(dataGridView1.CurrentRow.Cells["id"].Value));
+
+                unos_podataka.Show();
+            }
+                
+           
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Citologija.Repository
     {
         public int addBiopsija(int id_pacijent, string datum_bio, int idNalaz, int idLekar)
         {
-            string sql = "INSERT INTO biopsija (id_pacijent, datum_bio,id_nalaz,id_lekar,aktivan) Values (@id_pacijent,@datum_bio,@idNalaz,@idLekar,'" + 1 + "');";
+            string sql = "INSERT INTO biopsija (id_pacijent, datum_bio,id_nalaz,id_lekar,aktivan) VALUES (@id_pacijent,@datum_bio,@idNalaz,@idLekar,'" + 1 + "');";
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
                 var affectedRows = db.Execute(sql, new { id_pacijent, datum_bio, idNalaz, idLekar });
