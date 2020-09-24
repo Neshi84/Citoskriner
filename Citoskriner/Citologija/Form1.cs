@@ -102,5 +102,16 @@ namespace Citologija
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = pacijenti.searchPacijent(PretragaTxtBox.Text);
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var podesavanja = new PodesavanjaForm();
+            podesavanja.Show();
+        }
     }
 }

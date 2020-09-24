@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Citologija.Repository
 {
-    class NalazRepository
+    public class NalazRepository
     {
         public IEnumerable<Nalaz> getHpvNalazById(int id)
         {
@@ -76,6 +76,18 @@ namespace Citologija.Repository
                 return test;
             }
         }
+
+
+        public int addBiopsija(string nalaz)
+        {
+            string sql = "INSERT INTO nalaz_bio(nalaz) Values (@nalaz);";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql,new { nalaz });
+                return affectedRows;
+            }
+        }
+
 
     }
 }

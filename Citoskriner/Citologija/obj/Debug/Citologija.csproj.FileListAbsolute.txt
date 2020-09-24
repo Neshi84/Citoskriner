@@ -136,3 +136,4 @@ C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citolo
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.exe
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.pdb
 C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.csprojAssemblyReference.cache
+C:\Users\Nebojsa\Desktop\Dev\Citoskriner\Citoskriner\Citologija\obj\Debug\Citologija.PodesavanjaForm.resources

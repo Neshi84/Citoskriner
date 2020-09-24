@@ -126,6 +126,7 @@ namespace Citologija.Repository
             string sql = "SELECT p.id, p.ime,p.prezime,p.jmbg,l.ImePrezime AS Lekar, pap.datum_pap AS Datum,n.nalaz AS nalaz FROM podaci AS p " +
                          "INNER JOIN pap ON p.id=pap.id_pacijent " +
                          "INNER JOIN nalaz_cito AS n ON pap.id_nalaz=n.id " +
+                         "INNER JOIN Lekar AS l ON pap.id_lekar=l.id " +
                          "WHERE pap.id_lekar =@idLekar " +
                          "AND datum_pap BETWEEN date(@datumOd) AND date(@datumDo) " +
                          "AND pap.id_nalaz = @idNalaz " +

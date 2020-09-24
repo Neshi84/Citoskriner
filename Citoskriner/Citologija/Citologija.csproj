@@ -72,6 +72,12 @@
     <Compile Include="Model\PacijentBiopsija.cs" />
     <Compile Include="Model\PacijentHpv.cs" />
     <Compile Include="Model\PacijentPap.cs" />
+    <Compile Include="PodesavanjaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PodesavanjaForm.Designer.cs">
+      <DependentUpon>PodesavanjaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\HirIntervencijeRepository.cs" />
     <Compile Include="Model\Hir_intervencije.cs" />
     <Compile Include="Model\Hpv.cs" />
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Izvestaji.resx">
       <DependentUpon>Izvestaji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PodesavanjaForm.resx">
+      <DependentUpon>PodesavanjaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
