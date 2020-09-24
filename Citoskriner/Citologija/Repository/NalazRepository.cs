@@ -88,6 +88,14 @@ namespace Citologija.Repository
             }
         }
 
-
+        public int updateBiopsija(Nalaz nalaz)
+        {
+            string sql = "UPDATE nalaz_bio SET nalaz = @nalaz WHERE id=@id;";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, new { nalaz.nalaz,nalaz.id });
+                return affectedRows;
+            }
+        }
     }
 }
