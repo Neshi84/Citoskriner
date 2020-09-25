@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Citologija.Repository
 {
-    class RevizijaRepository
+    internal class RevizijaRepository
     {
         public IEnumerable<Revizija> getRevizijaByPacijentId(int id)
         {

@@ -5,24 +5,21 @@ using System.Windows.Forms;
 
 namespace Citologija
 {
-
     public partial class unosPodataka : Form
     {
         private int _idPacijent { get; set; }
-     
 
-        PacijentRepository pacijenti = new PacijentRepository();
-        BiopsijaRepository biopsije = new BiopsijaRepository();
-        PapRepository papRepo = new PapRepository();
-        HpvRepository hpvRepo = new HpvRepository();
-        HirIntervencijeRepository hirRepo = new HirIntervencijeRepository();
-        RevizijaRepository revizije = new RevizijaRepository();
-        LekarRepository lekarRepo = new LekarRepository();
-        NalazRepository nalazRepo = new NalazRepository();
+        private PacijentRepository pacijenti = new PacijentRepository();
+        private BiopsijaRepository biopsije = new BiopsijaRepository();
+        private PapRepository papRepo = new PapRepository();
+        private HpvRepository hpvRepo = new HpvRepository();
+        private HirIntervencijeRepository hirRepo = new HirIntervencijeRepository();
+        private RevizijaRepository revizije = new RevizijaRepository();
+        private LekarRepository lekarRepo = new LekarRepository();
+        private NalazRepository nalazRepo = new NalazRepository();
 
         public unosPodataka(int idPacijent)
         {
-
             _idPacijent = idPacijent;
 
             InitializeComponent();
@@ -68,15 +65,12 @@ namespace Citologija
             comboBox3.DisplayMember = "nalaz";
             comboBox3.ValueMember = "id";
 
-
             papGridView.AutoGenerateColumns = false;
             hpvGridView.AutoGenerateColumns = false;
             bioGridView.AutoGenerateColumns = false;
             hirGridView.AutoGenerateColumns = false;
             revGridView.AutoGenerateColumns = false;
-
         }
-
 
         public void prikaziPacijenta()
         {
@@ -98,7 +92,6 @@ namespace Citologija
 
         private void NovaRevizijaBtn_Click(object sender, EventArgs e)
         {
-
             if (comboBox8.Text == "")
             {
                 MessageBox.Show("Odaberite lekara!");
@@ -114,20 +107,16 @@ namespace Citologija
                 if (temp > 0)
                 {
                     revGridView.DataSource = revizije.getRevizijaByPacijentId(_idPacijent);
-
                 }
                 else
                 {
                     MessageBox.Show("Došlo je do greške!");
                 }
             }
-
-
         }
 
         private void NovHPVBtn_Click(object sender, EventArgs e)
         {
-
             if (comboBox5.Text == "")
             {
                 MessageBox.Show("Odaberite lekara!");
@@ -143,15 +132,12 @@ namespace Citologija
                 if (temp > 0)
                 {
                     hpvGridView.DataSource = hpvRepo.getHpvByPacijentId(_idPacijent);
-
                 }
                 else
                 {
                     MessageBox.Show("Došlo je do greške!");
                 }
             }
-
-
         }
 
         private void NovaBiopsijaBtn_Click(object sender, EventArgs e)
@@ -171,20 +157,16 @@ namespace Citologija
                 if (temp > 0)
                 {
                     bioGridView.DataSource = biopsije.getBiopsjaByPacientId(_idPacijent);
-
                 }
                 else
                 {
                     MessageBox.Show("Došlo je do greške!");
                 }
             }
-
-
         }
 
         private void Sacuvaj_Click(object sender, EventArgs e)
         {
-
             if (comboBox2.Text == "")
             {
                 MessageBox.Show("Odaberite lekara!");
@@ -195,20 +177,17 @@ namespace Citologija
             }
             else
             {
-
                 var temp = papRepo.addPap(_idPacijent, dateTimePicker4.Value.ToString("yyyy-MM-dd"), int.Parse(comboBox1.SelectedValue.ToString()), int.Parse(comboBox2.SelectedValue.ToString()), ploctxt.Text);
 
                 if (temp > 0)
                 {
                     papGridView.DataSource = papRepo.getPapByPacijentId(_idPacijent);
-
                 }
                 else
                 {
                     MessageBox.Show("Došlo je do greške!");
                 }
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)

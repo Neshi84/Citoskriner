@@ -7,9 +7,10 @@ namespace Citologija
 {
     public partial class Izvestaji : Form
     {
-        PacijentRepository pacijentRepo = new PacijentRepository();
-        LekarRepository lekarRepo = new LekarRepository();
-        NalazRepository nalazRepo = new NalazRepository();
+        private PacijentRepository pacijentRepo = new PacijentRepository();
+        private LekarRepository lekarRepo = new LekarRepository();
+        private NalazRepository nalazRepo = new NalazRepository();
+
         public Izvestaji()
         {
             InitializeComponent();
@@ -23,7 +24,6 @@ namespace Citologija
             comboBoxLekar.DisplayMember = "imePrezime";
             comboBoxLekar.ValueMember = "id";
 
-
             comboBox3.DataSource = nalazRepo.ReadAllCito();
             comboBox3.DisplayMember = "nalaz";
             comboBox3.ValueMember = "id";
@@ -35,11 +35,7 @@ namespace Citologija
             comboBoxHPV.DataSource = nalazRepo.ReadAllHpv();
             comboBoxHPV.DisplayMember = "nalaz";
             comboBoxHPV.ValueMember = "id";
-
         }
-
-
-
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -82,8 +78,6 @@ namespace Citologija
 
                 unos_podataka.Show();
             }
-                
-           
         }
     }
 }

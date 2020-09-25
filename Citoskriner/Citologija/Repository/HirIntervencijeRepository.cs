@@ -1,16 +1,13 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using System.Text;
 
 namespace Citologija.Model
 {
-    class HirIntervencijeRepository
+    internal class HirIntervencijeRepository
     {
-
         public IEnumerable<Hir_intervencije> getHirByPacijentId(int id)
         {
             string sql = "SELECT id, id_pacijent, intervencija FROM hir_intervencije WHERE id_pacijent = @id AND aktivan=1;";

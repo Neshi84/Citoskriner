@@ -2,9 +2,8 @@
 
 namespace Citologija.Model
 {
-    class PacijentHpv : Pacijent
+    internal class PacijentHpv : Pacijent
     {
-
         private string datum;
 
         public string Datum

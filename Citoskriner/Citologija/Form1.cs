@@ -8,17 +8,18 @@ namespace Citologija
 {
     public partial class Form1 : Form
     {
-        PacijentRepository pacijenti = new PacijentRepository();
+        private PacijentRepository pacijenti = new PacijentRepository();
+
         public Form1()
-        {           
-            InitializeComponent();         
+        {
+            InitializeComponent();
             dataGridView1.AutoGenerateColumns = false;
         }
 
         private void updateGridView()
         {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = pacijenti.ReadAll().OrderBy(p=>p.id).ToList();
+            dataGridView1.DataSource = pacijenti.ReadAll().OrderBy(p => p.id).ToList();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,7 +32,6 @@ namespace Citologija
             updateGridView();
         }
 
-       
         private void button1_Click(object sender, EventArgs e)
         {
             Pacijent pacijent = new Pacijent
@@ -43,20 +43,19 @@ namespace Citologija
 
             Pacijent provera = pacijenti.getPacijentByJMBG(jmbgTxt.Text);
 
-            if (provera!=null)
+            if (provera != null)
             {
-                MessageBox.Show("Već postoji pacijent sa unetim JMBG\n "+provera.ime+" "+provera.prezime);
+                MessageBox.Show("Već postoji pacijent sa unetim JMBG\n " + provera.ime + " " + provera.prezime);
             }
             else
             {
-
                 var temp = pacijenti.addPacijent(pacijent);
                 if (temp > 0)
                 {
                     updateGridView();
-                   
+
                     var unos_podataka = new unosPodataka(temp);
-                
+
                     unos_podataka.Show();
                     unos_podataka.FormClosing += unosPodataka_FormClosing;
                 }
@@ -65,14 +64,12 @@ namespace Citologija
                     MessageBox.Show("Došlo je do greške!");
                 }
             }
-           
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
             var unos_podataka = new unosPodataka((int)(dataGridView1.CurrentRow.Cells[0].Value));
-           
+
             unos_podataka.Show();
             unos_podataka.FormClosing += unosPodataka_FormClosing;
         }
@@ -105,7 +102,6 @@ namespace Citologija
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button2_Click(object sender, EventArgs e)

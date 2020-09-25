@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Citologija.Repository
 {
-    class HpvRepository
+    internal class HpvRepository
     {
         public int addHpv(int id_pacijent, string datum_hpv, int idNalaz, int idLekar)
         {

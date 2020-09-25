@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Citologija.Repository
 {
-    class BiopsijaRepository
+    internal class BiopsijaRepository
     {
         public int addBiopsija(int id_pacijent, string datum_bio, int idNalaz, int idLekar)
         {

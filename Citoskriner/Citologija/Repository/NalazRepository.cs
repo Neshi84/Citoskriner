@@ -11,7 +11,7 @@ namespace Citologija.Repository
     {
         public IEnumerable<Nalaz> getHpvNalazById(int id)
         {
-            string sql = "SELECT id, nalaz FROM hpv_nalaz WHERE id = @id;";
+            string sql = "SELECT id, nalaz FROM hpv_nalaz WHERE id = @id AND aktivan = 1;";
 
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
@@ -25,12 +25,41 @@ namespace Citologija.Repository
         {
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var test = db.Query<Nalaz>("SELECT id,nalaz FROM hpv_nalaz ");
+                var test = db.Query<Nalaz>("SELECT id,nalaz FROM hpv_nalaz WHERE aktivan = 1");
 
                 return test;
             }
         }
 
+        public int addHpv(string nalaz)
+        {
+            string sql = "INSERT INTO hpv_nalaz(nalaz) Values (@nalaz);";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, new { nalaz });
+                return affectedRows;
+            }
+        }
+
+        public int updateHpv(Nalaz nalaz)
+        {
+            string sql = "UPDATE hpv_nalaz SET nalaz = @nalaz WHERE id=@id;";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, new { nalaz.nalaz, nalaz.id });
+                return affectedRows;
+            }
+        }
+
+        public int deleteHpv(int id)
+        {
+            string sql = "UPDATE hpv_nalaz SET aktivan = 0 WHERE id=@id;";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, new { id });
+                return affectedRows;
+            }
+        }
 
         public IEnumerable<Nalaz> getBioNalazById(int id)
         {
@@ -48,12 +77,11 @@ namespace Citologija.Repository
         {
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var test = db.Query<Nalaz>("SELECT id,nalaz FROM nalaz_bio ");
+                var test = db.Query<Nalaz>("SELECT id,nalaz FROM nalaz_bio WHERE aktivan = 1 ");
 
                 return test;
             }
         }
-
 
         public IEnumerable<Nalaz> getCitoNalazById(int id)
         {
@@ -71,19 +99,18 @@ namespace Citologija.Repository
         {
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var test = db.Query<Nalaz>("SELECT id,nalaz FROM nalaz_cito ");
+                var test = db.Query<Nalaz>("SELECT id,nalaz FROM nalaz_cito WHERE aktivan = 1 ");
 
                 return test;
             }
         }
-
 
         public int addBiopsija(string nalaz)
         {
             string sql = "INSERT INTO nalaz_bio(nalaz) Values (@nalaz);";
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var affectedRows = db.Execute(sql,new { nalaz });
+                var affectedRows = db.Execute(sql, new { nalaz });
                 return affectedRows;
             }
         }
@@ -93,7 +120,47 @@ namespace Citologija.Repository
             string sql = "UPDATE nalaz_bio SET nalaz = @nalaz WHERE id=@id;";
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
-                var affectedRows = db.Execute(sql, new { nalaz.nalaz,nalaz.id });
+                var affectedRows = db.Execute(sql, new { nalaz.nalaz, nalaz.id });
+                return affectedRows;
+            }
+        }
+
+        public int deleteBiopsija(int id)
+        {
+            string sql = "UPDATE nalaz_bio SET aktivan = 0  WHERE id=@id;";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, new { id });
+                return affectedRows;
+            }
+        }
+
+        public int addCito(string nalaz)
+        {
+            string sql = "INSERT INTO nalaz_cito(nalaz) Values (@nalaz);";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, new { nalaz });
+                return affectedRows;
+            }
+        }
+
+        public int updateCito(Nalaz nalaz)
+        {
+            string sql = "UPDATE nalaz_cito SET nalaz = @nalaz WHERE id=@id;";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, new { nalaz.nalaz, nalaz.id });
+                return affectedRows;
+            }
+        }
+
+        public int deleteCito(int id)
+        {
+            string sql = "UPDATE nalaz_cito SET aktivan = 0 WHERE id=@id;";
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, new { id });
                 return affectedRows;
             }
         }

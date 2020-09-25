@@ -7,9 +7,8 @@ using System.Linq;
 
 namespace Citologija.Repository
 {
-    class PacijentRepository
+    internal class PacijentRepository
     {
-
         public IEnumerable<Pacijent> ReadAll()
         {
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
@@ -40,7 +39,6 @@ namespace Citologija.Repository
                 var affectedRows = db.Execute(sql, new { id });
                 return affectedRows;
             }
-
         }
 
         public IEnumerable<Pacijent> searchPacijent(string kriterijum)
@@ -50,11 +48,9 @@ namespace Citologija.Repository
             {
                 var pacijentList = db.Query<Pacijent>(sql, new { kriterijum = "%" + kriterijum + "%" });
 
-
                 return pacijentList;
             }
         }
-
 
         public Pacijent getPacijentByJMBG(string jmbg)
         {
@@ -62,7 +58,6 @@ namespace Citologija.Repository
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {
                 var pacijentList = db.Query<Pacijent>(sql, new { jmbg });
-
 
                 return pacijentList.FirstOrDefault();
             }
@@ -99,7 +94,6 @@ namespace Citologija.Repository
                 return pacijentList;
             }
         }
-
 
         public IEnumerable<PacijentHpv> getPacijentHpv(string datumOd, string datumDo, int idLekar, int idNalaz)
         {

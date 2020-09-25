@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Citologija.Repository
 {
-    class PapRepository
+    internal class PapRepository
     {
         public IEnumerable<Pap> getPapByPacijentId(int id)
         {

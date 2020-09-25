@@ -23,6 +23,5 @@ namespace Citologija.Model
         }
 
         public string nalaz { get; set; }
-        
     }
 }

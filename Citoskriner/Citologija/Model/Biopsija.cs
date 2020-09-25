@@ -22,6 +22,5 @@ namespace Citologija.Model
 
         public string nalaz { get; set; }
         public string Lekar { get; set; }
-
     }
 }

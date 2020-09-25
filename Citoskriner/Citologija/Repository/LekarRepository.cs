@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Citologija.Repository
 {
-    class LekarRepository
+    internal class LekarRepository
     {
         public IEnumerable<Lekar> ReadAll()
         {
@@ -29,7 +29,5 @@ namespace Citologija.Repository
                 return affectedRows.Single();
             }
         }
-
-
     }
 }

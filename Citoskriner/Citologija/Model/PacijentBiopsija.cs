@@ -2,10 +2,10 @@
 
 namespace Citologija.Model
 {
-    class PacijentBiopsija : Pacijent
+    internal class PacijentBiopsija : Pacijent
     {
-
         private string datum;
+
         public string Datum
         {
             get
@@ -19,7 +19,6 @@ namespace Citologija.Model
         }
 
         public string nalaz { get; set; }
-
 
         public string broj_prep { get; set; }
 

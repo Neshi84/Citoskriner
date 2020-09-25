@@ -2,7 +2,7 @@
 
 namespace Citologija.Model
 {
-    class PacijentPap : Pacijent
+    internal class PacijentPap : Pacijent
     {
         public string lekar { get; set; }
         public string broj_prep { get; set; }
@@ -21,6 +21,5 @@ namespace Citologija.Model
         }
 
         public string nalaz { get; set; }
-
     }
 }
