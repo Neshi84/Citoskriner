@@ -134,5 +134,25 @@ namespace Citologija.Repository
                 return pacijentList;
             }
         }
+
+        public IEnumerable<PacijentPap> getPacijentRevizija(string datumOd, string datumDo, int idLekar, int idNalaz)
+        {
+            string sql = "SELECT p.id, p.ime,p.prezime,p.jmbg,l.ImePrezime AS Lekar, revizija.datum_rev AS Datum,n.nalaz AS nalaz FROM podaci AS p " +
+                         "INNER JOIN revizija ON p.id=revizija.id_pacijent " +
+                         "INNER JOIN nalaz_cito AS n ON revizija.id_nalaz=n.id " +
+                         "INNER JOIN Lekar AS l ON revizija.id_lekar=l.id " +
+                         "WHERE revizija.id_lekar =@idLekar " +
+                         "AND datum_rev BETWEEN date(@datumOd) AND date(@datumDo) " +
+                         "AND revizija.id_nalaz = @idNalaz " +
+                         "AND p.aktivan=1 " +
+                         "AND revizija.aktivan = 1; ";
+
+            using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+            {
+                var pacijentList = db.Query<PacijentPap>(sql, new { datumOd, datumDo, idLekar, idNalaz });
+
+                return pacijentList;
+            }
+        }
     }
 }

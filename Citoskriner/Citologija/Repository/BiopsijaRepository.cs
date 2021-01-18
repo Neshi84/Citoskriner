@@ -24,7 +24,7 @@ namespace Citologija.Repository
             string sql = "SELECT b.id, b.id_pacijent,b.datum_bio, n.nalaz, l.ImePrezime AS Lekar FROM biopsija AS b " +
                          "INNER JOIN Lekar as l ON b.id_lekar = l.id  " +
                          "INNER JOIN nalaz_bio as n ON b.id_nalaz = n.id  " +
-                         "WHERE id_pacijent = @id AND aktivan=1;";
+                         "WHERE id_pacijent = @id AND b.aktivan=1;";
 
             using (IDbConnection db = new SQLiteConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
             {

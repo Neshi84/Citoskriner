@@ -32,6 +32,10 @@ namespace Citologija
             comboBoxBio.DisplayMember = "nalaz";
             comboBoxBio.ValueMember = "id";
 
+            comboBox1.DataSource = nalazRepo.ReadAllCito();
+            comboBox1.DisplayMember = "nalaz";
+            comboBox1.ValueMember = "id";
+
             comboBoxHPV.DataSource = nalazRepo.ReadAllHpv();
             comboBoxHPV.DisplayMember = "nalaz";
             comboBoxHPV.ValueMember = "id";
@@ -78,6 +82,17 @@ namespace Citologija
 
                 unos_podataka.Show();
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var datumOd = DateTime.Parse(datumOdPicker.Text).ToString("yyyy-MM-dd");
+            var datumDo = DateTime.Parse(datumDoPicker.Text).ToString("yyyy-MM-dd");
+
+            var pacijenti = pacijentRepo.getPacijentRevizija(datumOd, datumDo, int.Parse(comboBoxLekar.SelectedValue.ToString()), int.Parse(comboBox1.SelectedValue.ToString())).ToList();
+            dataGridView1.DataSource = pacijenti;
+            label7.Visible = true;
+            label7.Text = (pacijenti.Count).ToString();
         }
     }
 }
